@@ -18,5 +18,8 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+*{
+  height: 100%;
+}
 </style>
