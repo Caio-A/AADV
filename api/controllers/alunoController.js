@@ -59,20 +59,27 @@ exports.createAluno = async (req, res) => {
 };
 
 
-// ==> Método responsável por atualizar um 'Aluno' pelo 'Id':
-exports.updateAlunoById = async (req, res) => {
-  // deve checar pegar os nomes dos campos, selecionar aqueles dentro de fillable
-  // e atualizar aqueles apenas. Ou pegar todos os dados e substuir os que foram passados
-  // e enviar todos de uma vez
-  let query = 'UPDATE Alunos SET Aluno_name = $1, quantity = $2, price = $3 WHERE id = $4'
+exports.updateAlunoById = async (req, res) => {  
+  const id = parseInt(req.params.id);
+  const keys = Object.keys(req.body)
+  let values = Object.values(req.body)
+  values.push(id) // adiciona o id aos values
+  let str = ""
+  let i;
+  for (i = 0; i < keys.length - 1; i++)
+  {
+      str += `${keys[i]} = $${i+1}, `
+  }
+  str += `${keys[i]} = $${i+1}`
+  let query = `UPDATE Alunos SET ${str} WHERE id = $${i+2}`
+  
   try{
-    const response = await db.query(query,Object.values(req.body),
-    );
+    const response = await db.query(query,values);
   }
   catch(err)
   {
     res.status(400).send({
-      message: 'Não foi possível cadastrar o aluno',
+      message: 'Não foi possível atualizar o aluno',
       erro: err.stack,
       sql:  query
     });
@@ -80,7 +87,7 @@ exports.updateAlunoById = async (req, res) => {
   }
 
   res.status(201).send({
-    message: 'Aluno adicionado!',
+    message: 'Aluno editado!',
     body: response,
   });
 

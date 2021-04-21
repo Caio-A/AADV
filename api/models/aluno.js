@@ -1,7 +1,6 @@
 const db = require('../config/database');
 
 exports.columns = [
-    "id",
     "matricula",
     "nome",
     "endereco",
