@@ -1,19 +1,17 @@
 <template>
   <div id="app">
-    <menu1/>
-    <display/>
+    <tela/>
   </div>
 </template>
 
 <script>
-import menu1 from './components/side-bar/menu'
-import display from './components/display/display'
+
+import tela from './components/tela.vue'
 
 export default {
   name: 'App',
   components: {
-    menu1,
-    display
+    tela
   }
 }
 </script>
