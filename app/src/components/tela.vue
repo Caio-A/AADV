@@ -1,25 +1,7 @@
 <template>
+
     <div>
         <div class="grid-container">
-            <div class="item1">
-                <img src="./logo.png" id="logo" style="height: 100px; margin-left: 2%;">
-                <button class="botoes-topbar">
-                    <heroicon name="home" fill="#6D6A6B"></heroicon>
-                    Início
-                </button>
-                <button class="botoes-topbar">
-                    <heroicon name="user" fill="#6D6A6B"></heroicon>
-                    Alunos
-                </button>
-                <button class="botoes-topbar">
-                    Almoço
-                </button>
-                <button class="botoes-topbar">
-                    <heroicon name="book" fill="white"></heroicon>
-                    Relatórios
-                    <hr style="border: 2px solid white; vertical-align: top"> 
-                </button>
-            </div>
             <div class="item3">
                 <div id="dadospessoais">
                     1-Dados Pessoais
@@ -227,7 +209,6 @@ export default {
 .grid-container {
   display: grid;
   grid-template-areas:
-    'header header header header'
     ' main main right right';
 
   grid-gap: px;
@@ -237,12 +218,6 @@ export default {
 
   padding: 20px 0;
   font-size: 30px;
-}
-.item1{
-    background-color: #363740;
-    color: white;
-    height: 100%;
-    display: inline-block;
 }
 .item3, .item4{
     text-align: center;
@@ -264,12 +239,6 @@ export default {
 }
 #dadospessoais, #dadosobg, #saude, #documentos{
     border: 1px solid white;
-}
-.botoes-topbar{
-    font-size: 30px;
-    margin-left: 4%;
-    background-color: rgba(0, 0, 0, 0);
-    border: 0px solid rgba(0, 0, 0, 0);
 }
 .input-text{
     border-radius: 15px;
