@@ -216,9 +216,13 @@ export default {
         },
 
         editItem (item) {
-        this.editedIndex = this.desserts.indexOf(item)
-        this.editedItem = Object.assign({}, item)
-        this.dialog = true
+            this.$router.push('/tela')
+            /*
+            this.editedIndex = this.desserts.indexOf(item)
+            this.editedItem = Object.assign({}, item)
+            this.dialog = true
+            */
+            console.log(item); // essa linha ta aqui pra evitar erro de variavel nao utilizada
         },
 
         deleteItem (item) {

@@ -1,15 +1,21 @@
 <template>
+
   <div id="app">
     <div class="item1">
         <img src="./assets/logo.png" id="logo" style="height: 100px; margin-left: 2%;">
-        <button class="botoes-topbar" v-on:click="acao_botao">
-            <heroicon name="home" fill="#6D6A6B"></heroicon>
-            Início
-        </button>
-        <button class="botoes-topbar">
-            <heroicon name="user" fill="#6D6A6B"></heroicon>
-            Alunos
-        </button>
+        <router-link to="/">
+          <button class="botoes-topbar" v-on:click="acao_botao">
+              <heroicon name="home" fill="#6D6A6B"></heroicon>
+              Início
+          </button>
+        </router-link>
+        
+        <router-link to="/alunos">
+            <button class="botoes-topbar">
+                <heroicon name="user" fill="#6D6A6B"></heroicon>
+                Alunos
+            </button>
+        </router-link>
         <button class="botoes-topbar">
             Almoço
         </button>
@@ -19,22 +25,15 @@
             <hr style="border: 2px solid white; vertical-align: top"> 
         </button>
     </div>
-    <Tela v-if="estado == 0"/>
-    <Alunos v-else/>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
 
-import Tela from './components/Tela.vue'
-import Alunos from './components/Alunos.vue'
 
 export default {
   name: 'App',
-  components: {
-    Tela,
-    Alunos
-  },
   data () {
       return {
           estado: 1,
@@ -46,6 +45,7 @@ export default {
       }
   }
 }
+
 </script>
 
 <style scoped>
