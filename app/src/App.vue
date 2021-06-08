@@ -55,8 +55,6 @@ export default {
     background-color: #363740;
     color: white;
     display: inline-block;
-    border-color: red;
-    border-style:solid;
 }
 .botoes-topbar{
     font-size: 30px;
