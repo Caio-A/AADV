@@ -42,10 +42,37 @@ exports.columns = [
     "fonte"
 ]
 
+var moment = require('moment'); // require
+
 exports.find = async (id) => {
     const response = await db.query(
         'SELECT * FROM Alunos WHERE id = $1',
         [id],
     );
-    return response.rows
+    let resposta = trata_resposta(response)
+    return resposta
+};
+
+get_mutator_nascimento = (value) => {
+    return moment(value).format("DD/MM/YYYY")
+}
+
+get_mutator_ingresso = (value) => {
+    return moment(value).format("DD/MM/YYYY")
+}
+
+trata_resposta = (resposta_raw) => {
+    return resposta_raw.rows.map((aluno) => {
+        aluno.nascimento = get_mutator_nascimento(aluno.nascimento)
+        aluno.ingresso = get_mutator_ingresso(aluno.ingresso)
+        return aluno
+    })
+}
+
+exports.list = async (id) => {
+    const response = await db.query(
+      'SELECT * FROM alunos',
+    );
+    let resposta = trata_resposta(response)
+    return resposta
 };

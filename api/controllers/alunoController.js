@@ -19,10 +19,8 @@ function get_values_placeholders (num_values) {
 
 // ==> Método responsável por listar todos os 'Alunos':
 exports.listAllAlunos = async (req, res) => {
-  const response = await db.query(
-    'SELECT * FROM alunos',
-  );
-  res.status(200).send(response.rows);
+  result = await aluno.list()
+  res.status(200).send(result);
 };
 
 // ==> Método responsável por selecionar 'Aluno' pelo 'Id':
