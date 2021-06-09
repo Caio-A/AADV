@@ -222,7 +222,7 @@ export default {
             this.editedItem = Object.assign({}, item)
             this.dialog = true
             */
-            console.log(item); // essa linha ta aqui pra evitar erro de variavel nao utilizada
+            item // essa linha ta aqui pra evitar erro de variavel nao utilizada
         },
 
         deleteItem (item) {

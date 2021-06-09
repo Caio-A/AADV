@@ -30,7 +30,7 @@
     "vuetify-loader": "^1.7.0"
   },
   "eslintConfig": {
-    "root": true,
+    "root": false,
     "env": {
       "node": true
     },
