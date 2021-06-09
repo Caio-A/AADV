@@ -23,8 +23,8 @@
                 dark
                 class="mb-2"
                 v-bind="attrs"
-                v-on="on"
-              >New Item</v-btn>
+                @click="criar_aluno"
+              >Novo Aluno</v-btn>
             </template>
             <v-card>
               <v-card-title>
@@ -164,6 +164,11 @@ export default {
               'protein': aluno.fonte,
             }
           })
+        },
+
+        criar_aluno ()
+        {
+            this.$router.push('/tela')
         },
 
         editItem (item) {
