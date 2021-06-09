@@ -9,8 +9,8 @@ Vue.use(VueRouter)
 
 const routes = [
   { path: '/', component: Home },
-  { path: '/tela', component: Tela},
-  { path: '/alunos', component: Alunos}
+  { path: '/cadastro', component: Tela},
+  { path: '/alunos', component: Alunos},
 ]
 
 const router = new VueRouter({

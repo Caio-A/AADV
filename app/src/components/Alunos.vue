@@ -137,7 +137,7 @@ export default {
     created () {
         let _this = this
         fetch('http://localhost:3000/api/alunos', {
-            method: 'get' // opcional
+            method: 'get'
           })
           .then(function(response) {
             response.json()
@@ -168,11 +168,11 @@ export default {
 
         criar_aluno ()
         {
-            this.$router.push('/tela')
+            this.$router.push('/cadastro')
         },
 
         editItem (item) {
-            this.$router.push('/tela')
+            this.$router.push('/cadastro')
             /*
             this.editedIndex = this.desserts.indexOf(item)
             this.editedItem = Object.assign({}, item)
