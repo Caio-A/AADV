@@ -10,7 +10,6 @@
     >
       <template v-slot:top>
         <v-toolbar flat color="white">
-          <v-toolbar-title>My CRUD</v-toolbar-title>
           <v-divider
             class="mx-4"
             inset
