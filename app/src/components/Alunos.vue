@@ -149,8 +149,6 @@ export default {
           .catch(function(err) { 
             console.error(err);
           })
-
-        //this.initialize()
     },
 
     methods: {
