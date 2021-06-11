@@ -7,8 +7,7 @@ Como instalar:
 * npm install
 
 execute com: 
-
-* node ./bin/www
+* npm run serve
 
 
 ---- INSTALAÇÃO DO APP
