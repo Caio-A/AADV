@@ -58,7 +58,7 @@
                     </div>
                     <div id='responsavel'  style="font-size: 11pt; text-align: left; margin-left: 2%; ">
                         CNS/SUS 
-                        <input v-model="form.cnssus" type="text" style=" width: 75%; margin-top: 2%; margin-left: 4%;" class="input-text">
+                        <input v-model="form.cns_sus" type="text" style=" width: 75%; margin-top: 2%; margin-left: 4%;" class="input-text">
                     </div>
                     <div id='responsavel'  style="font-size: 11pt; text-align: left; margin-left: 2%; ">
                         BENEFÍCIO 
@@ -79,9 +79,9 @@
                         RESPONSÁVEL 
                         <input v-model="form.responsavel" type="text" style=" width: 74.5%; margin-top: 2%; margin-left: 2%;" class="input-text">
                     </div>
-                    <div id='telefone'  style="font-size: 11pt; text-align: left; margin-left: 2%; ">
+                    <div id='telefones'  style="font-size: 11pt; text-align: left; margin-left: 2%; ">
                         TELEFONES 
-                        <input v-model="form.telefone" type="text" style=" width: 74%; margin-top: 2%; margin-left: 6%; margin-bottom: 2%" class="input-text">
+                        <input v-model="form.telefones" type="text" style=" width: 74%; margin-top: 2%; margin-left: 6%; margin-bottom: 2%" class="input-text">
                     </div>
                 </div>
             </div>  
@@ -90,31 +90,31 @@
                     3-Dados Obrigatórios
                     <div style="font-size: 11pt; text-align: left; margin-left: 2%; margin-top: 2%;">
                         FREQUENTA ENSINO REGULAR
-                        <select v-model="form.freq_ensino_regular" name="ensino" id="1" class="select" style="margin-left: 2%; margin-right:4%;">
+                        <select v-model="form.aluno_ensino_regular" name="ensino" id="1" class="select" style="margin-left: 2%; margin-right:4%;">
                             <option value="SIM">SIM</option>
                             <option value="NÃO">NAO</option>
                         </select>
                         ALMOÇO
-                        <select v-model="form.almoco" name="ensino" id="1" class="select" style="margin-left: 2%; margin-right:2%;">
+                        <select v-model="form.alunos_almoco" name="ensino" id="1" class="select" style="margin-left: 2%; margin-right:2%;">
                             <option value="SIM">SIM</option>
                             <option value="NÃO">NAO</option>
                         </select>
                     </div>
                     <div style="font-size: 11pt; text-align: left; margin-left: 2%; margin-top: 2%;">
                         ALFABETIZADO
-                        <select v-model="form.alfabetizado" name="ensino" id="1" class="select" style="margin-left: 5%; margin-right:17.3%;">
+                        <select v-model="form.aluno_alfabetizado" name="ensino" id="1" class="select" style="margin-left: 5%; margin-right:17.3%;">
                             <option value="SIM">SIM</option>
                             <option value="NAO">NAO</option>
                         </select>
                         RESIDENTE EM POÇOS
-                        <select v-model="form.residente_em_poços" name="ensino" id="1" class="select" style="margin-left: 2%; margin-right:2%;">
+                        <select v-model="form.residente_pocos" name="ensino" id="1" class="select" style="margin-left: 2%; margin-right:2%;">
                             <option value="SIM">SIM</option>
                             <option value="NÃO">NAO</option>
                         </select>
                     </div>
                     <div style="font-size: 11pt; text-align: left; margin-left: 2%; margin-top: 2%;">
                         TIPO DE LEITURA
-                        <select v-model="form.tipo_leitura" name="ensino" id="1" class="select" style="margin-left: 3%; margin-right: 11%;">
+                        <select v-model="form.tipo_de_leitura" name="ensino" id="1" class="select" style="margin-left: 3%; margin-right: 11%;">
                             <option value="BRAILLE">BRAILLE</option>
                             <option value="AMPLIADO">AMPLIADO</option>
                             <option value="DEFINIR">DEFINIR</option>
@@ -162,7 +162,7 @@
                         DEFICIÊNCIA VISUAL <br>
                         <input v-model="form.deficiencia_visual" type="text" style="width: 95%; height: 50px; margin-bottom: 2%; margin-top: 1%;" class="input-text">
                     </div>
-                    <div id='patologia'  style="font-size: 11pt; text-align: left; margin-left: 2%;">
+                    <div id='patologia_deficiencia_visual'  style="font-size: 11pt; text-align: left; margin-left: 2%;">
                         OUTRAS PATOLOGIAS <br>
                         <input v-model="form.outras_patologias" type="text" style=" width: 95%; height: 50px; margin-bottom: 2%; margin-top: 1%;" class="input-text">
                     </div>
@@ -178,11 +178,11 @@
                         PLANOS DE SAÚDE
                         <input v-model="form.planos_de_saude" type="text" style=" width: 20%; margin-top: 2%; margin-left: 2%; margin-right: 3%;" class="input-text">
                         OBSERVAÇÃO
-                        <input v-model="form.observação" type="text" style=" width: 20%; margin-top: 2%; margin-left: 1%;" class="input-text">
+                        <input v-model="form.observacao" type="text" style=" width: 20%; margin-top: 2%; margin-left: 1%;" class="input-text">
                     </div>
                     <div style="font-size: 11pt; text-align: left; margin-left: 2%;">
                         PATOLOGIA
-                        <input v-model="form.patologia" type="text" style=" width: 20%; margin-top: 2%; margin-left: 10%; margin-right: 3.5%" class="input-text">
+                        <input v-model="form.patologia_deficiencia_visual" type="text" style=" width: 20%; margin-top: 2%; margin-left: 10%; margin-right: 3.5%" class="input-text">
                         DIABÉTICO
                         <select  v-model="form.diabetico" name="diabetico" id="1" class="select" style="margin-left: 4%; margin-right:25%;">
                             <option value="SIM">SIM</option>
@@ -206,14 +206,14 @@ export default {
         return {
             form: {
                 alergias: '',
-                alfabetizado: '',
-                almoco: '',
+                aluno_alfabetizado: '',
+                alunos_almoco: '',
                 bairro: '',
                 beneficio: '',
                 cadastro_estadual: '',
                 cep: '',
                 cidade: '',
-                cnssus: '',
+                cns_sus: '',
                 cpf: '',
                 deficiencia_visual: '',
                 diabetico: '',
@@ -222,7 +222,7 @@ export default {
                 estado: '',
                 faixa_etaria: '',
                 fonte: '',
-                freq_ensino_regular: '',
+                aluno_ensino_regular: '',
                 ingresso: '',
                 matricula: '',
                 medicamentos: '',
@@ -230,31 +230,42 @@ export default {
                 multiplo: '',
                 nascimento: '',
                 nome: '',
-                observação: '',
+                observacao: '',
                 outras_patologias: '',
                 passe_livre: '',
-                patologia: '',
+                patologia_deficiencia_visual: '',
                 periodo: '',
                 planos_de_saude: '',
-                residente_em_poços: '',
+                residente_pocos: '',
                 responsavel: '',
                 rg: '',
                 sexo: '',
                 situacao: '',
-                telefone: '',
-                tipo_leitura: '',
+                telefones: '',
+                tipo_de_leitura: '',
             },
         }
     },
     created () {
+        let url
+        if(this.$route.params.id)
+        {
+            console.log(this.$route.params.id)
+            url = `http://localhost:3000/api/alunos/${this.$route.params.id}`
+        }
+        else
+        {
+            console.log('new user')
+            url = `http://localhost:3000/api/alunos`
+            url = `http://localhost:3000/api/alunos/1`
+        }
         let _this = this
-        fetch('http://localhost:3000/api/alunos/1', {
+        fetch(url, {
             method: 'get'
         })
         .then(function(response) {
             response.json()
             .then(function(result) {
-            console.log(result)
             _this.insere_data_no_form(result)
             })
         })
@@ -264,19 +275,47 @@ export default {
     },
     methods: {
         acao_botao () {
-            console.log(this.form);
+            let url
+            if(this.$route.params.id)
+            {
+                console.log(this.$route.params.id)
+                url = `http://localhost:3000/api/alunos/${this.$route.params.id}`
+            }
+            else
+            {
+                console.log('new user')
+                url = `http://localhost:3000/api/alunos`
+            }
+            var myHeaders = new Headers();
+            myHeaders.append("Content-Type", "application/json");
+
+            let new_form = this.form
+            //delete new_form.telefones
+            var raw = JSON.stringify(new_form);
+
+            var requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: raw,
+            redirect: 'follow'
+            };
+
+            fetch(url, requestOptions)
+            .then(response => response.text())
+            .then(result => console.log(result))
+            .catch(error => console.log('error', error));
         },
         insere_data_no_form (result) {
                 result = result[0];
                 this.form.alergias = result.alergias;
-                this.form.alfabetizado = result.aluno_alfabetizado;
-                this.form.almoco = result.alunos_almoco;
+                this.form.aluno_alfabetizado = result.aluno_alfabetizado;
+                this.form.alunos_almoco = result.alunos_almoco;
                 this.form.bairro = result.bairro;
                 this.form.beneficio = result.beneficio;
                 this.form.cadastro_estadual = result.cadastro_estadual;
                 this.form.cep = result.cep;
                 this.form.cidade = result.cidade;
-                this.form.cnssus = result.cns_sus;
+                this.form.cns_sus = result.cns_sus;
                 this.form.cpf = result.cpf;
                 this.form.deficiencia_visual = result.deficiencia_visual;
                 this.form.diabetico = result.diabetico;
@@ -285,7 +324,7 @@ export default {
                 this.form.estado = result.estado;
                 this.form.faixa_etaria = result.faixa_etaria;
                 this.form.fonte = result.fonte;
-                this.form.freq_ensino_regular = result.aluno_ensino_regular;
+                this.form.aluno_ensino_regular = result.aluno_ensino_regular;
                 this.form.ingresso = result.ingresso;
                 this.form.matricula = result.matricula;
                 this.form.medicamentos = result.medicamentos;
@@ -293,19 +332,19 @@ export default {
                 this.form.multiplo = result.multiplo;
                 this.form.nascimento = result.nascimento;
                 this.form.nome = result.nome;
-                this.form.observação = result.observacao;
+                this.form.observacao = result.observacao;
                 this.form.outras_patologias = result.outras_patologias;
                 this.form.passe_livre = result.passe_livre;
-                this.form.patologia = result.patologia_deficiencia_visual;
+                this.form.patologia_deficiencia_visual = result.patologia_deficiencia_visual;
                 this.form.periodo = result.periodo;
                 this.form.planos_de_saude = result.planos_de_saude;
-                this.form.residente_em_poços = result.residente_pocos;
+                this.form.residente_pocos = result.residente_pocos;
                 this.form.responsavel = result.responsavel;
                 this.form.rg = result.rg;
                 this.form.sexo = result.sexo;
                 this.form.situacao = result.situacao;
-                this.form.telefone = result.telefones;
-                this.form.tipo_leitura = result.tipo_de_leitura;
+                this.form.telefones = result.telefones;
+                this.form.tipo_de_leitura = result.tipo_de_leitura;
         }
     }
 }

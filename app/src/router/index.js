@@ -12,6 +12,7 @@ Vue.use(VueRouter)
 const routes = [
   { path: '/', component: Home },
   { path: '/cadastro', component: Cadastro},
+  { path: '/cadastro/:id', component: Cadastro},
   { path: '/alunos', component: Alunos},
   { path: '/relatorios', component: Relatorio},
   { path: '/almoco', component: Almoco},
