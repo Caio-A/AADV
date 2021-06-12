@@ -1,8 +1,7 @@
 <template>
     <div class="item1">
         <p>{{current_route}}</p>
-        <img src="../assets/logo.png" id="logo" style="height: 100px; margin-left: 2%;">
-
+        <img src="../assets/logo.png" id="logo" style="height: 100px; margin-left:2%">
         <router-link to="/">
           <button class="botoes-topbar">
               <heroicon name="home" class="icon"></heroicon>
@@ -64,6 +63,7 @@ export default {
     width: 100%;
     background-color: #363740;
     display: inline-block;
+    vertical-align: top;
 }
 .botoes-topbar{
     font-size: 30px;
