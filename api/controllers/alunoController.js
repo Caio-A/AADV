@@ -58,6 +58,7 @@ exports.createAluno = async (req, res) => {
 
 
 exports.updateAlunoById = async (req, res) => {  
+  console.log(req.body)
   const id = parseInt(req.params.id);
   const keys = Object.keys(req.body)
   let values = Object.values(req.body)
@@ -72,6 +73,7 @@ exports.updateAlunoById = async (req, res) => {
   let query = `UPDATE Alunos SET ${str} WHERE id = $${i+2}`
   
   try{
+    console.log(`query tried: ${query}`)
     const response = await db.query(query,values);
   }
   catch(err)

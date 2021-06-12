@@ -7,7 +7,7 @@ router.get('/alunos', alunoController.listAllAlunos);
 
 router.get('/alunos/:id', alunoController.findAlunoById);
 
-router.put('/alunos/:id', alunoController.updateAlunoById);
+router.post('/alunos/:id', alunoController.updateAlunoById);
 
 router.delete('/alunos/:id', alunoController.deleteAlunoById);
 

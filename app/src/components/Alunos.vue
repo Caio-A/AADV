@@ -142,7 +142,7 @@ export default {
           .then(function(response) {
             response.json()
             .then(function(result) {
-              console.log(result)
+              //console.log(result)
               _this.initialize(result)
             })
           })
@@ -160,6 +160,7 @@ export default {
               'fat': aluno.nascimento,
               'carbs': aluno.aluno_alfabetizado,
               'protein': aluno.fonte,
+              'id': aluno.id,
             }
           })
         },
@@ -170,7 +171,7 @@ export default {
         },
 
         editItem (item) {
-            this.$router.push('/cadastro')
+            this.$router.push(`/cadastro/${item.id}`)
             /*
             this.editedIndex = this.desserts.indexOf(item)
             this.editedItem = Object.assign({}, item)
