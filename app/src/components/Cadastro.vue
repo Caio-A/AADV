@@ -252,26 +252,25 @@ export default {
         {
             console.log(this.$route.params.id)
             url = `http://localhost:3000/api/alunos/${this.$route.params.id}`
+            let _this = this
+            fetch(url, {
+                method: 'get'
+            })
+            .then(function(response) {
+                response.json()
+                .then(function(result) {
+                    console.log(result)
+                    _this.insere_data_no_form(result)
+                })
+            })
+            .catch(function(err) { 
+                console.error(err);
+            })
         }
         else
         {
             console.log('new user')
-            url = `http://localhost:3000/api/alunos`
-            url = `http://localhost:3000/api/alunos/1`
         }
-        let _this = this
-        fetch(url, {
-            method: 'get'
-        })
-        .then(function(response) {
-            response.json()
-            .then(function(result) {
-            _this.insere_data_no_form(result)
-            })
-        })
-        .catch(function(err) { 
-            console.error(err);
-        })
     },
     methods: {
         acao_botao () {

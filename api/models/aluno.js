@@ -1,47 +1,5 @@
 const db = require('../config/database');
 
-exports.columns = [
-    "matricula",
-    "nome",
-    "endereco",
-    "bairro",
-    "cep",
-    "cidade",
-    "estado",
-    "aadv",
-    "telefones",
-    "nascimento",
-    "responsavel",
-    "ingresso",
-    "escola",
-    "rg",
-    "cpf",
-    "cns_sus",
-    "beneficio",
-    "passe_livre",
-    "cadastro_estadual",
-    "patologia_deficiencia_visual",
-    "outras_patologias",
-    "medicamentos",
-    "alergias",
-    "planos_de_saude",
-    "medicos",
-    "observacao",
-    "sexo",
-    "situacao",
-    "residente_pocos",
-    "faixa_etaria",
-    "deficiencia_visual",
-    "multiplo",
-    "diabetico",
-    "alunos_almoco",
-    "periodo",
-    "aluno_ensino_regular",
-    "aluno_alfabetizado",
-    "tipo_de_leitura",
-    "fonte"
-]
-
 var moment = require('moment'); // require
 
 exports.find = async (id) => {
@@ -54,11 +12,11 @@ exports.find = async (id) => {
 };
 
 get_mutator_nascimento = (value) => {
-    return moment(value).format("DD/MM/YYYY")
+    return moment(value).format("YYYY-MM-DD")
 }
 
 get_mutator_ingresso = (value) => {
-    return moment(value).format("DD/MM/YYYY")
+    return moment(value).format("YYYY-MM-DD")
 }
 
 trata_resposta = (resposta_raw) => {
