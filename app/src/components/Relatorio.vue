@@ -1,6 +1,6 @@
 <template>
 <div id="app">
-    <div v-for="aluno in desserts" :key="aluno.id" class="teste" id="imprimir">
+    <div v-for="aluno in desserts" :key="aluno.id" class="teste" id="imprime">
       <v-row>
         <v-col>
           <div class="margin"></div> 
@@ -78,14 +78,14 @@
           <div class="linha"></div><br><div class="linha"></div><br>
           <br>
           <div class="margin"></div>
-        </v-col>       
-      </v-row>
+          <button onclick="print()" class="btn-print">IMPRIMIR</button>
+        </v-col>    
+      </v-row>   
     </div>
 </div>
 
 </template>
 <script>
-
 export default {
     data () {
         return {
@@ -197,9 +197,10 @@ export default {
         },
     },
 }
+
 </script>
 
-<style scoped>
+<style>
 .teste{
   border: 2px solid black;
   background-color: white;
@@ -248,5 +249,35 @@ export default {
 .F{ display: inline-block; margin-top: 1%;}
 .G{ display: inline-block; margin-top: 1%;}
 .H{ display: inline-block; margin-top: 1%;}
+
+.btn-print{
+  background-color: #41729F;
+  color: white;
+  font-weight: bold;
+  padding: 0.7%;
+  border-radius: 5%;
+  margin-top: 1%;
+}
+
+@media print{
+  *, #app{
+    visibility: hidden;
+  }
+  #imprime, #imprime * {
+    visibility: visible;
+  }
+  #imprime
+  {
+    width: 95%;
+    display: block;
+    margin-right: 2%;
+    height: 1030px;
+    margin-top: 2%;
+    border: 1px solid white;
+  }
+  .btn-print{
+      display: none;
+  }
+}
 
 </style>
