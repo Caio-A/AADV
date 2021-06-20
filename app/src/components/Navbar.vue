@@ -2,13 +2,15 @@
     <div class="item1">
         <p>{{current_route}}</p>
         <img src="../assets/logo.png" id="logo" style="height: 100px; margin-left:2%">
+
+        <!--
         <router-link to="/">
           <button class="botoes-topbar">
               <heroicon name="home" class="icon"></heroicon>
               Início
           </button>
         </router-link>
-        
+        -->
         <router-link to="/alunos">
             <button class="botoes-topbar">
                 <heroicon name="user" class="icon"></heroicon>

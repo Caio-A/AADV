@@ -1,6 +1,7 @@
 const { response } = require('../app');
 const db = require('../config/database');
 const aluno = require('../models/aluno')
+const _ =  require('lodash')
 
 // concatena os nomes das colunas em uma string
 const get_column_string = () => { return columns.join(', ')}
@@ -33,10 +34,19 @@ exports.findAlunoById = async (req, res) => {
 
 // ==> Método responsável por criar um novo 'Aluno':
 exports.createAluno = async (req, res) => {
+  colunas_str = '('
+  let body = _.pickBy(req.body, _.identity)
+  colunas = Object.keys(body)
+  let  i = 0;
+  for(; i < colunas.length - 1; i++)
+  {
+    colunas_str += colunas[i] + ', '
+  }
+  colunas_str += colunas[i] + ')'
 
-  let query = `INSERT INTO alunos VALUES (${get_values_placeholders(aluno.columns.length)})`
+  let query = `INSERT INTO alunos ${colunas_str} VALUES (${get_values_placeholders(Object.values(body).length)})`
   try{
-    const response = await db.query(query,Object.values(req.body),
+    const response = await db.query(query,Object.values(body),
     );
   }
   catch(err)
@@ -58,10 +68,11 @@ exports.createAluno = async (req, res) => {
 
 
 exports.updateAlunoById = async (req, res) => {  
-  console.log(req.body)
+  let body = _.pickBy(req.body, _.identity)
+  console.log(body)
   const id = parseInt(req.params.id);
-  const keys = Object.keys(req.body)
-  let values = Object.values(req.body)
+  const keys = Object.keys(body)
+  let values = Object.values(body)
   values.push(id) // adiciona o id aos values
   let str = ""
   let i;
