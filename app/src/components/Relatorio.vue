@@ -261,7 +261,7 @@ export default {
 
 @media print{
   *, #app{
-    visibility: hidden;
+    visibility: collapse;
   }
   #imprime, #imprime * {
     visibility: visible;

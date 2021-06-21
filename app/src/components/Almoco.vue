@@ -5,7 +5,7 @@
     <v-data-table
       :headers="headers"
       :items="desserts"
-      sort-by="idAlunos"
+      sort-by="alunos_id"
       class="elevation-1"
     >
       <template v-slot:top>
@@ -18,16 +18,46 @@
                 <v-container>
                   <v-row>
                     <v-col cols="12" sm="6" md="4">
-                      <v-text-field v-model="editedItem.idAluno" label="id aluno"></v-text-field>
+                      <v-text-field v-model="editedItem.idAluno" label="id aluno" color='primary' class="text-green"></v-text-field>
                     </v-col>
                     <v-col cols="12" sm="6" md="4">
                       <v-text-field v-model="editedItem.nome" label="nome"></v-text-field>
                     </v-col>
                     <v-col cols="12" sm="6" md="4">
-                      <v-text-field v-model="editedItem.diabetico" label="diabetico"></v-text-field>
+                      <v-text-field v-model="editedItem.cidade" label="cidade"></v-text-field>
                     </v-col>
                     <v-col cols="12" sm="6" md="4">
-                      <v-text-field v-model="editedItem.datSemana" label="dias da semana"></v-text-field>
+                      <v-text-field v-model="editedItem.diabetico" label="diabetico"></v-text-field>
+                    </v-col> 
+                    <v-col>
+                      <v-text-field v-model="editedItem.freq_seg" label="freq_seg"></v-text-field>
+                    </v-col>
+                    <v-col>
+                      <v-text-field v-model="editedItem.freq_ter" label="freq_ter"></v-text-field>
+                    </v-col>
+                    <v-col>
+                       <v-text-field v-model="editedItem.freq_qua" label="freq_qua"></v-text-field>
+                    </v-col>
+                    <v-col>
+                      <v-text-field v-model="editedItem.alm_qui" label="freq_qui"></v-text-field>
+                    </v-col>
+                    <v-col>
+                      <v-text-field v-model="editedItem.alm_sex" label="freq_sex"></v-text-field>
+                    </v-col>
+                    <v-col>
+                      <v-text-field v-model="editedItem.alm_seg" label="alm_seg"></v-text-field>
+                    </v-col>
+                    <v-col>
+                      <v-text-field v-model="editedItem.alm_ter" label="alm_ter"></v-text-field>
+                    </v-col>
+                    <v-col>
+                       <v-text-field v-model="editedItem.alm_qua" label="alm_qua"></v-text-field>
+                    </v-col>
+                    <v-col>
+                      <v-text-field v-model="editedItem.alm_qui" label="alm_qui"></v-text-field>
+                    </v-col>
+                    <v-col>
+                      <v-text-field v-model="editedItem.alm_sex" label="alm_sex"></v-text-field>
                     </v-col>
                     <v-col cols="12" sm="6" md="4">
                       <v-text-field v-model="editedItem.almoco" label="almoco"></v-text-field>
@@ -57,15 +87,19 @@ export default {
             dialog: false,
             headers: [
             { text: 'N° MATRÍCULA', value: 'idAluno' },
-            {
-                text: 'NOME',
-                align: 'start',
-                sortable: false,
-                value: 'nome',
-            },
+            {text: 'NOME',align: 'start',sortable: false,value: 'nome',},
+            {text: 'CIDADE',value: 'cidade'},
             { text: 'DIABÉTICO', value: 'diabetico' },
-            { text: 'DIAS DA SEMANA', value: 'datSemana' },
-            { text: 'ALMOÇO', value: 'almoco' },
+            { text: 'Seg', value: 'freq_seg' },
+            { text: 'Ter', value: 'freq_ter' },
+            { text: 'Qua', value: 'freq_qua' },
+            { text: 'Qui', value: 'freq_qui' },
+            { text: 'Sex', value: 'freq_sex' },
+            { text: 'Seg', value: 'alm_seg' },
+            { text: 'Ter', value: 'alm_ter' },
+            { text: 'Qua', value: 'alm_qua' },
+            { text: 'Qui', value: 'alm_qui' },
+            { text: 'Sex', value: 'alm_sex' },
             ],
             desserts: [],
             editedIndex: -1,
@@ -99,7 +133,7 @@ export default {
 
     created () {
         let _this = this
-        fetch('http://localhost:3000/api/alunos', {
+        fetch('http://localhost:3000/api/almocos', {
             method: 'get'
           })
           .then(function(response) {
@@ -116,13 +150,22 @@ export default {
 
     methods: {
         initialize (result) {
-          this.desserts = result.map((aluno) => {
+          this.desserts = result.map((almoco) => {
             return {
-              'nome': aluno.nome,
-              'idAluno': aluno.matricula,
-              'diabetico': aluno.diabetico,
-              'datSemana': aluno.alunos_almoco,
-              'almoco': aluno.alunos_almoco,
+              'nome': almoco.nome,
+              'idAluno': almoco.alunos_id,
+              'diabetico': almoco.diabeticos,
+              'freq_seg': almoco.freq_seg,
+              'freq_ter' : almoco.freq_ter,
+              'freq_qua' : almoco.freq_qua,
+              'freq_qui' : almoco.freq_qui,
+              'freq_sex' : almoco.freq_sex,
+              'alm_seg': almoco.alm_seg,
+              'alm_ter' : almoco.alm_ter,
+              'alm_qua' : almoco.alm_qua,
+              'alm_qui' : almoco.alm_qui,
+              'alm_sex' : almoco.alm_sex,
+              'cidade' : almoco.cidade,
             }
           })
         },
@@ -148,5 +191,7 @@ export default {
 </script>
 
 <style scoped>
-
+  .text-green{
+    color: green;
+  }
 </style>
