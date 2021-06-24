@@ -72,10 +72,9 @@
           <br>
           <br>
           <h5><b>OBSERVAÇÕES:</b></h5>
-          <div class="linha"></div><br><div class="linha"></div><br>
-          <div class="linha"></div><br><div class="linha"></div><br>
-          <div class="linha"></div><br><div class="linha"></div><br>
-          <div class="linha"></div><br><div class="linha"></div><br>
+          <hr id="line"><hr id="line">
+          <hr id="line"><hr id="line">
+          <hr id="line"><hr id="line">
           <br>
           <div class="margin"></div>
           <button onclick="print()" class="btn-print">IMPRIMIR</button>
@@ -197,6 +196,7 @@ export default {
         },
     },
 }
+        
 
 </script>
 
@@ -226,12 +226,16 @@ export default {
   width: 100%;
   background-color: #B9B7BD;
 }
-.linha{
+#linha{
   background-color: black;
   width: 100%;
   height: 1px;
   display: block;
   margin-top: 2%;
+}
+#line{
+  background-color: black !important;
+  height: 1px !important;
 }
 .head{
   display: inline-block;
@@ -260,8 +264,9 @@ export default {
 }
 
 @media print{
-  *, #app{
-    visibility: collapse;
+  #navbar{
+    visibility: hidden;
+    height: 0px;
   }
   #imprime, #imprime * {
     visibility: visible;
@@ -277,6 +282,13 @@ export default {
   }
   .btn-print{
       display: none;
+  }
+  #line{
+    visibility: visible;
+  }
+  #line, #line *{
+    background-color: black !important;
+    height: 1px !important;
   }
 }
 

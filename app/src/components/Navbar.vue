@@ -1,5 +1,5 @@
 <template>
-    <div class="item1">
+    <div class="item1" id="navbar">
         <p>{{current_route}}</p>
         <img src="../assets/logo.png" id="logo" style="height: 100px; margin-left:2%">
 

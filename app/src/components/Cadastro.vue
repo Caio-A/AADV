@@ -198,9 +198,8 @@
         </div>
     </div>
 </template>
-<script>
 
-    
+<script>
 export default {
     data () {
         return {
@@ -345,7 +344,7 @@ export default {
                 this.form.telefones = result.telefones;
                 this.form.tipo_de_leitura = result.tipo_de_leitura;
         }
-    }
+    },
 }
 </script>
 
